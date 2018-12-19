@@ -1,6 +1,7 @@
 defmodule ExList.Backends.Struct do
   use ExList.Macro.Importable do
     use ExList.Monads.Decision
+    use ExList.Macro.Sigil
   end
 
   defstruct head: nil,

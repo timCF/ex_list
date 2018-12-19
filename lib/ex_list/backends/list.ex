@@ -1,6 +1,7 @@
 defmodule ExList.Backends.List do
   use ExList.Macro.Importable do
     use ExList.Monads.Decision
+    use ExList.Macro.Sigil
   end
 
   @type t(a) :: [a]

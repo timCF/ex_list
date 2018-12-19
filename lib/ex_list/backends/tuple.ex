@@ -1,6 +1,7 @@
 defmodule ExList.Backends.Tuple do
   use ExList.Macro.Importable do
     use ExList.Monads.Decision
+    use ExList.Macro.Sigil
   end
 
   @type t(a) :: nil | {a, t(a)}
