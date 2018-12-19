@@ -10,10 +10,18 @@ defmodule ExList.UtilsTest do
       left = list("Hello", list("beautiful", list()))
       right = list("AST", list("world", list()))
       full = ExList.concat(left, right)
+      reversed = list("world", list("AST", list("beautiful", list("Hello", list()))))
       assert full == list("Hello", list("beautiful", list("AST", list("world", list()))))
+      assert reversed == ExList.reverse(full)
 
       assert "Hello beautiful AST world" ==
                ExList.reduce(full, "", fn
+                 word, "" -> word
+                 word, acc -> "#{acc} #{word}"
+               end)
+
+      assert "world AST beautiful Hello" ==
+               ExList.reduce(reversed, "", fn
                  word, "" -> word
                  word, acc -> "#{acc} #{word}"
                end)

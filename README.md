@@ -33,6 +33,8 @@ iex> ExList.reduce(full, "", fn
   word, acc -> "#{acc} #{word}"
 end)
 "Hello beautiful AST world"
+iex> ExList.reverse(full) == list("world", list("AST", list("beautiful", list("Hello", list()))))
+true
 ```
 
 Due to the fact that implementation is based on very simple idea (just `&list/0` and `&list/2`) - we have guarantees of the same results on all other backends:
@@ -49,6 +51,8 @@ iex> ExList.reduce(full, "", fn
   word, acc -> "#{acc} #{word}"
 end)
 "Hello beautiful AST world"
+iex> ExList.reverse(full) == list("world", list("AST", list("beautiful", list("Hello", list()))))
+true
 ```
 
 ## Protocols
