@@ -8,7 +8,7 @@ Funny (and inefficient) implementation of linked lists in Elixir language. Do **
 
 ## Implementation
 
-This project is funny exercise - I implemented linked list data type for Elixir from scratch, without usage of standard build-in Erlang lists. Actually, `ExList` can work on top of 3 backends:
+This project is really good exercise. I implemented linked list data type for Elixir from scratch, without usage of standard build-in Erlang lists. Actually, `ExList` can work on top of 3 backends:
 
 - [:struct](https://github.com/timCF/ex_list/blob/master/lib/ex_list/backends/struct.ex) (default) - it is the most obvious way to define new data type in Elixir
 - [:tuple](https://github.com/timCF/ex_list/blob/master/lib/ex_list/backends/tuple.ex) - very short way, more efficient than `:struct`
@@ -53,7 +53,7 @@ end)
 
 ## Protocols
 
-Foundation of `:struct` backend is Elixir structure, so we can have polymorphic goodies using Elixir Protocols!
+Foundation of `:struct` ExList backend is Elixir structure, so we can have polymorphic goodies using Elixir protocols!
 
 ```elixir
 iex> use ExList, backend: :struct
@@ -77,7 +77,7 @@ iex> to_string(ex_list)
 
 ## Sigil
 
-Just for better syntax I implemented `~l` sigil for ExList. This sigil is not 100% fair because standard Erlang lists are used in compile-time to represent given list of terms in AST.
+Just for better syntax I implemented `~l` sigil for ExList. This sigil is not 100% fair because standard Erlang lists are used in compile-time to parse terms to AST
 
 ```elixir
 iex> use ExList, backend: :struct
