@@ -1,6 +1,5 @@
-use ExList, backend: :struct
-
-defimpl Enumerable, for: ExList do
+defimpl Enumerable, for: ExList.Backends.Struct do
+  use ExList, backend: :struct
   def count(_), do: {:error, __MODULE__}
   def member?(_, _), do: {:error, __MODULE__}
   def slice(_), do: {:error, __MODULE__}

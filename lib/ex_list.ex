@@ -1,9 +1,4 @@
 defmodule ExList do
-  @moduledoc """
-  Funny inefficient implementation of linked lists in Elixir language.
-  This project is just exercise and joke!
-  Don't use it for real code!
-  """
 
   @default_backend :struct
   @backends %{

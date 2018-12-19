@@ -1,6 +1,6 @@
-use ExList, backend: :struct
+defimpl Collectable, for: ExList.Backends.Struct do
+  use ExList, backend: :struct
 
-defimpl Collectable, for: ExList do
   def into(original) do
     fun = fn
       ex_list, {:cont, x} -> list(x, ex_list)

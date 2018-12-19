@@ -1,6 +1,6 @@
-use ExList, backend: :struct
+defimpl String.Chars, for: ExList.Backends.Struct do
+  use ExList, backend: :struct
 
-defimpl String.Chars, for: ExList do
   def to_string(ex_list) do
     payload =
       ex_list
