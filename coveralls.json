@@ -1,0 +1,16 @@
+{
+  "coverage_options": {
+    "treat_no_relevant_lines_as_covered": false,
+    "minimum_coverage": 25
+  },
+  "skip_files": [
+    "test/*",
+
+    "lib/ex_list_web.ex",
+    "lib/ex_list/application.ex",
+    "lib/ex_list/repo.ex",
+
+    "lib/ex_list_web/endpoint.ex",
+    "lib/ex_list_web/router.ex"
+  ]
+}

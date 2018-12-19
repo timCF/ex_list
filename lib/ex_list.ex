@@ -12,8 +12,40 @@ defmodule ExList do
     list: ExList.Backends.List
   }
 
+  @doc """
+  Map of backends for ExList implementations
+
+  ## Example
+
+  ```
+  iex> ExList.backends
+  #{@backends |> inspect}
+  ```
+  """
   def backends, do: @backends
 
+  @doc """
+  Macro enables ExList backend. Have optional 2nd :backend argument
+
+  ## Example
+
+  ```
+  iex> use ExList
+  ExList.Backends.Struct.Utils
+
+  iex> use ExList, backend: :struct
+  ExList.Backends.Struct.Utils
+
+  iex> use ExList, backend: :tuple
+  ExList.Backends.Tuple.Utils
+
+  iex> use ExList, backend: :list
+  ExList.Backends.List.Utils
+
+  iex> quote do use ExList, backend: :hello_world end |> Code.eval_quoted
+  ** (RuntimeError) invalid backend opts [backend: :hello_world]
+  ```
+  """
   defmacro __using__(opts) do
     backend =
       opts
