@@ -1,5 +1,4 @@
 defmodule ExList do
-
   @default_backend :struct
   @backends %{
     struct: ExList.Backends.Struct,
