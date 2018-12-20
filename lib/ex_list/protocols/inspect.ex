@@ -1,14 +1,11 @@
-# defimpl Inspect, for: ExList.Backends.Struct do
-#   use ExList, backend: :struct
-#
-#   def inspect(ex_list, opts) do
-#     payload =
-#       ex_list
-#       |> ExList.reduce("", fn
-#         x, "" -> Kernel.inspect(x, opts)
-#         x, acc -> "#{acc}, #{Kernel.inspect(x, opts)}"
-#       end)
-#
-#     "#ExList<#{payload}>"
-#   end
-# end
+defimpl Inspect, for: ExList.Backends.Struct do
+  use ExList, backend: :struct
+  import Inspect.Algebra
+
+  def inspect(ex_list, opts) do
+    open = color("#ExList<", :list, opts)
+    sep = color(",", :list, opts)
+    close = color(">", :list, opts)
+    container_doc(open, Enum.to_list(ex_list), close, opts, &to_doc/2, separator: sep)
+  end
+end
